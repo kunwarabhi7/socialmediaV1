@@ -1,7 +1,8 @@
 import React,{useState} from 'react'
 import { Link } from 'react-router-dom'
 import {  signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from '../utils/firebase';
+import { auth, userRef } from '../utils/firebase';
+import { doc, getDoc } from 'firebase/firestore';
 
 const Login = () => {
 const [email, setEmail] = useState('')
@@ -11,8 +12,11 @@ const [password, setPassword] = useState('')
         signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
      const user = userCredential.user;
+     getDoc(doc(userRef,user.uid)).then((user)=>{
+        console.log(user.data());
+     })
      console.log(user)
-    })
+       })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;

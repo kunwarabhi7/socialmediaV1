@@ -1,13 +1,12 @@
 import React,{ useState } from 'react'
 import { Link } from 'react-router-dom'
 import {  createUserWithEmailAndPassword } from "firebase/auth";
-import { addDoc } from 'firebase/firestore';
+import {  doc, setDoc } from 'firebase/firestore';
 import { auth } from '../utils/firebase';
 import { userRef } from '../utils/firebase';
 
 
 const Register = () => {
-    const [displayName, setDisplayName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setconfirmPassword] = useState('')
@@ -20,11 +19,10 @@ const Register = () => {
           const user = userCredential.user;
          const userData = {
             email : user.email,
-            displayName : user.displayName,
             profilePicUrl : '/',
             bio: 'Hey I m creating this app'
          }
-          addDoc(userRef,userData)
+          setDoc(doc(userRef,user.uid),userData)
           console.log(user)
           console.log(userData)
         })
@@ -41,14 +39,7 @@ const Register = () => {
                         <h1 className="mb-8 text-3xl text-center">Sign up</h1>
                         <form onSubmit={formSubmitHandler}>
                     
-                        <input 
-                            type="text"
-                            className="block border border-grey-light w-full p-3 rounded mb-4"
-                            name="email"
-                            value={displayName}
-                            onChange={e => setDisplayName(e.target.value)}
-                            placeholder="Display Name" />
-
+                    
                         <input 
                             type="text"
                             className="block border border-grey-light w-full p-3 rounded mb-4"

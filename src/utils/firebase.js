@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import {getAuth } from 'firebase/auth'
-import {getFirestore , collection } from 'firebase/firestore'
+import {collection, getFirestore  } from 'firebase/firestore'
 const firebaseConfig = {
   apiKey: "AIzaSyCbBrHYKwPzFnGIJFwgjlyqjiHtNCs14Lg",
   authDomain: "social-media-1958c.firebaseapp.com",
@@ -13,4 +13,4 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app)
 export const auth = getAuth(app)
-export const userRef = collection(db,'users')
+export  const userRef = collection(db,'users')
