@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import {  signInWithEmailAndPassword } from "firebase/auth";
 import { auth, userRef } from '../utils/firebase';
 import { doc, getDoc } from 'firebase/firestore';
+import Loader from '../Components/Loader';
 
 const Login = () => {
 const [email, setEmail] = useState('')
@@ -29,6 +30,7 @@ console.log(errorMessage)
 
   return (
     <div className="bg-grey-lighter min-h-screen flex flex-col">
+        <Loader />
                 <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
                     <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
                         <h1 className="mb-8 text-3xl text-center">Login</h1>
