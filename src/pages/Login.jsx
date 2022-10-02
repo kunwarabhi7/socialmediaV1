@@ -4,6 +4,7 @@ import {  signInWithEmailAndPassword } from "firebase/auth";
 import { auth, userRef } from '../utils/firebase';
 import { doc, getDoc } from 'firebase/firestore';
 import Loader from '../Components/Loader';
+import { toast } from 'react-toastify';
 
 const Login = () => {
 const [email, setEmail] = useState('')
@@ -14,14 +15,28 @@ const [password, setPassword] = useState('')
   .then((userCredential) => {
      const user = userCredential.user;
      getDoc(doc(userRef,user.uid)).then((user)=>{
-        console.log(user.data());
+        toast.success('🦄 Wow login successful!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
      })
      console.log(user)
        })
   .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-console.log(errorMessage)
+    toast.error(`🦄 error ${error.message}`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
 });
 
     }
@@ -30,7 +45,7 @@ console.log(errorMessage)
 
   return (
     <div className="bg-grey-lighter min-h-screen flex flex-col">
-        <Loader />
+        {/* <Loader /> */}
                 <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
                     <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
                         <h1 className="mb-8 text-3xl text-center">Login</h1>
