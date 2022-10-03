@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
-
+import { getDownloadURL, getStorage, ref, uploadBytes  } from "firebase/storage";
+import {addDoc, collection} from 'firebase/firestore'
+import {db} from '../utils/firebase';
 import DefaultLayout from '../Components/Layout/DefaultLayout'
 const AddPost = () => {
 
@@ -10,8 +11,13 @@ const AddPost = () => {
     uploadBytes(storageRef, image).then((snapshot) => {
       getDownloadURL(ref(storage, `/posts/${image.name}`))
       .then((url)=>{
-        console.log(url)
-      })
+    addDoc(collection(db,'posts'),{
+      description,
+      imageUrl : url,
+      likes:[],
+      Comments: [],
+    })  
+    })
 
     });
   }
