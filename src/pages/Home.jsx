@@ -1,9 +1,12 @@
 import React from 'react'
+import DefaultLayout from '../Components/Layout/DefaultLayout'
 
 const Home = () => {
   return (
-    <div className='bg-black text-gray-300 text-4xl  '>
-      <h1 className='p-4'>Home</h1>
+    <div>
+      <DefaultLayout>
+
+     </DefaultLayout>
     </div>
   )
 }

@@ -1,10 +1,11 @@
 import React from 'react'
 import Header from './Header'
 
-const DefaultLayout = () => {
+const DefaultLayout = (props) => {
   return (
     <div>
-      <Header />s
+      <Header />
+      {props.children}
     </div>
   )
 }
