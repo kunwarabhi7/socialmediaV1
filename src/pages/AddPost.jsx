@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { getStorage, ref, uploadBytes } from "firebase/storage";
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 
 import DefaultLayout from '../Components/Layout/DefaultLayout'
 const AddPost = () => {
@@ -8,7 +8,11 @@ const AddPost = () => {
     const storage = getStorage();
     const storageRef = ref(storage, `/posts/${image.name}`);
     uploadBytes(storageRef, image).then((snapshot) => {
-      console.log('Uploaded a blob or file!');
+      getDownloadURL(ref(storage, `/posts/${image.name}`))
+      .then((url)=>{
+        console.log(url)
+      })
+
     });
   }
 
