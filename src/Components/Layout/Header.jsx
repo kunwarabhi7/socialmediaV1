@@ -24,9 +24,9 @@ const Header = () => {
 
   return (
     <div>
-      <div className='flex space-x-10 justify-end p-2'>
+      <div className='flex space-x-10 justify-end p-2 mr-4 items-center bg-black'>
         {navBar.map((nav)=>{
-          return <Link to={nav.path}>{nav.name}</Link>
+          return <Link className='hover:bg-black text-white hover:text-gray-200 p-2 font-medium text-2xl ' to={nav.path}>{nav.name}</Link>
         })}
       </div>
     </div>
