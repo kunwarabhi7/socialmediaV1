@@ -5,6 +5,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import AddPost from './pages/AddPost'
 
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/addpost' element={<AddPost />} />
         
       </Routes>
 
