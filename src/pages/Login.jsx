@@ -6,8 +6,9 @@ import { doc, getDoc } from 'firebase/firestore';
 import Loader from '../Components/Loader';
 import { toast } from 'react-toastify';
 import { useSelector,useDispatch } from 'react-redux';
-
+import { useNavigate } from 'react-router-dom';
 const Login = () => {
+    const navigate = useNavigate()
     const {loading} =  useSelector(store=>store)
     const dispatch = useDispatch()
     
@@ -28,6 +29,7 @@ const signInUser = (e) => {
           );
          console.log(user)
      })
+     navigate('/home')
      toast.success('🦄 Wow login successful!', {
         position: "top-right",
         autoClose: 5000,

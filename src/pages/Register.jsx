@@ -7,8 +7,10 @@ import { userRef } from '../utils/firebase';
 import { toast } from 'react-toastify';
 import { useSelector,useDispatch } from 'react-redux';
 import Loader from '../Components/Loader';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
+    const navigate = useNavigate();
   const {loading} =  useSelector(store=>store)
   const dispatch = useDispatch()
     const [email, setEmail] = useState('')
@@ -32,6 +34,7 @@ const Register = () => {
           console.log(user)
           console.log(userData)
           dispatch({type:'hideLoading'});
+          navigate('/login')
           toast.success('🦄 Wow SignUP successful!', {
             position: "top-right",
             autoClose: 5000,
