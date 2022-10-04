@@ -36,11 +36,11 @@ const AddPost = () => {
 
 <h1 className='text-3xl font-bold text-red-700 text-center pt-4'>Add New Post</h1>
 <div className='flex flex-col'>
-<textarea value={description} onChange={e=>setDescription(e.target.value)} cols="5" rows="5" className='ml-[40%] w-96 h-40 mt-4 border border-gray-500  '></textarea>
-<input className='ml-[45%] mt-4' type="file" onChange={ e=>onImageChange(e)} />
+<textarea value={description} onChange={e=>setDescription(e.target.value)} cols="5" rows="5" className='ml-[40%] w-96 h-40 mt-4 border border-gray-500 md:w-15 md:m-0 md:h-10 '></textarea>
+<input className='ml-[45%] mt-4 md:m-0' type="file" onChange={ e=>onImageChange(e)} />
 
 {image && (
-  <img src={URL.createObjectURL(image)} alt='image' className='w-80 h-80 mt-4 ml-[45%]' />
+  <img src={URL.createObjectURL(image)} alt='image' className='w-80 h-80 mt-4 ml-[45%] md:w-20 md:h-12  ' />
 )
 
 
