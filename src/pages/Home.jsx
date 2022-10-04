@@ -27,8 +27,8 @@ getPost()
       <DefaultLayout>
     <div className='grid grid-cols-4 md:grid-cols-1'>
         
-{posts.map((post)=>{
- return  <PostLayout post={post} />
+{posts.map((post,index)=>{
+ return  <PostLayout key={index} post={post} />
 })}
     </div>
      </DefaultLayout>
