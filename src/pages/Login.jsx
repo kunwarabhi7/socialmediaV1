@@ -27,9 +27,9 @@ const signInUser = (e) => {
             "userAbhishek",
             JSON.stringify({ ...user.data(), id: user.id })
           );
-         console.log(user)
+          console.log(user)
+          navigate('/home')
      })
-     navigate('/home')
      toast.success('🦄 Wow login successful!', {
         position: "top-right",
         autoClose: 5000,

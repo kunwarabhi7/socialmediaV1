@@ -16,6 +16,7 @@ const AddPost = () => {
       imageUrl : url,
       likes:[],
       Comments: [],
+      user:JSON.parse(localStorage.getItem('userAbhishek'))
     })  
     })
 
