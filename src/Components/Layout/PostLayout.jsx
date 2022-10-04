@@ -1,4 +1,6 @@
 import React from 'react'
+import {AiFillHeart} from 'react-icons/ai'
+import {FaRegComment} from 'react-icons/fa'
 
 const PostLayout = ({post}) => {
 
@@ -9,7 +11,7 @@ const PostLayout = ({post}) => {
     }
 
   return (
-    <div className=" rounded overflow-hidden border w-full lg:w-6/12 md:w-6/12 bg-white mx-3 md:mx-0 lg:mx-0">
+    <div className=" rounded overflow-hidden border w-full  bg-white mx-3 md:mx-0 lg:mx-0">
         
     <div className="w-full flex justify-between p-3">
       <div className="flex">
@@ -20,18 +22,22 @@ const PostLayout = ({post}) => {
       </div>
       <span className="px-2 hover:bg-gray-300 cursor-pointer rounded"><i className="fas fa-ellipsis-h pt-2 text-lg"></i></span>
     </div>
-    <img className="w-full h-72 bg-cover p-3 m-2" src={post.imageUrl}  />
+    <img className="w-full h-72 bg-cover p-1 pr-3 m-2" src={post.imageUrl}  />
+    <div className='flex '>
+        <AiFillHeart className='ml-3' size={30}/>
+        <FaRegComment className='ml-4' size={30} />
+    </div>
     <div className="px-3 pb-2">
       <div className="pt-2">
         <i className="far fa-heart cursor-pointer"></i>
-        <span className="text-sm text-gray-400 font-medium">12 likes</span>
+        <span className="text-sm text-gray-400 font-medium">{post.likes.length} likes</span>
       </div>
       <div className="pt-1">
         <div className="mb-2 text-sm">
           <span className="font-medium mr-2">{getUserName()}</span> {post.description}
         </div>
       </div>
-      <div className="text-sm mb-2 text-gray-400 cursor-pointer font-medium">View all 14 comments</div>
+      <div className="text-sm mb-2 text-gray-400 cursor-pointer font-medium">View all {post.Comments.length} comments</div>
       <div className="mb-2">
         <div className="mb-2 text-sm">
           <span className="font-medium mr-2">razzle_dazzle</span> Dude! How cool! I went to New Zealand last summer and had a blast taking the tour! So much to see! Make sure you bring a good camera when you go!

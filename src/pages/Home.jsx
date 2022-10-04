@@ -25,10 +25,10 @@ getPost()
 
     return (
       <DefaultLayout>
-    <div className='grid grid-cols-4 md:grid-cols-1'>
+    <div className='grid grid-cols-4 md:grid-cols-1 '>
         
 {posts.map((post,index)=>{
- return  <PostLayout key={index} post={post} />
+ return  <PostLayout  key={index} post={post} />
 })}
     </div>
      </DefaultLayout>
