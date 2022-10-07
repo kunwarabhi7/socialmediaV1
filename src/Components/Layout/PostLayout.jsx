@@ -40,7 +40,7 @@ const PostLayout = ({post}) => {
       <div className="text-sm mb-2 text-gray-400 cursor-pointer font-medium">View all {post.Comments.length} comments</div>
       <div className="mb-2">
         <div className="mb-2 text-sm">
-          <span className="font-medium mr-2">razzle_dazzle</span> Dude! How cool! I went to New Zealand last summer and had a blast taking the tour! So much to see! Make sure you bring a good camera when you go!
+          <span className="font-medium mr-2">RANDOM USER</span> your Comment will come here
         </div>
       </div>
     </div>
